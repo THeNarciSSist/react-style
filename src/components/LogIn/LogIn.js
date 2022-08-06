@@ -4,7 +4,7 @@ import padlockIcon from "../../img/padlock.png"
 import { Link } from "react-router-dom"
 import {
   PlaceholderSpan,
-  TextInput,
+  EmailInput,
   PasswordInput,
   TextLabel,
   PageDiv,
@@ -33,7 +33,13 @@ class LogIn extends Component {
             <PageName>Sign In</PageName>
             <div className="input-box">
               <TextLabel>
-                <TextInput required type="text" />
+                <EmailInput
+                  autoComplete="email"
+                  required
+                  type="email"
+                  name="email"
+                  id="email"
+                />
                 <PlaceholderSpan>Email Address*</PlaceholderSpan>
               </TextLabel>
               <TextLabel>

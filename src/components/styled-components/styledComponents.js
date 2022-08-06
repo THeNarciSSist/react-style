@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const PageDiv = styled.div`
   height: 100vh;
@@ -47,9 +47,17 @@ export const TextLabel = styled.label`
   padding-top: 20px;
 `
 
+const borderCorrect = css`
+  border-color: green;
+`
+
+const borderIncorrect = css`
+  border-color: red;
+`
+
 const Input = styled.input`
   background: none;
-  border: 2px solid #ddd;
+  border: 3.5px solid #ddd;
   transition: border-color 0.3s ease;
   appearance: none;
   padding: 12px;
@@ -67,10 +75,27 @@ const Input = styled.input`
   }
 `
 
-export const TextInput = styled(Input)``
-export const PasswordInput = styled(Input)``
-export const NameInput = styled(Input)`
+export const EmailInput = styled(Input)`
+  &: focus {
+    ${({ variant }) => (variant === true ? borderCorrect : borderIncorrect)};
+  }
+`
+export const PasswordInput = styled(Input)`
+  &: focus {
+    ${({ variant }) => (variant === true ? borderCorrect : borderIncorrect)};
+  }
+`
+export const FirstNameInput = styled(Input)`
   width: 17rem;
+  &:focus {
+    ${({ variant }) => (variant === true ? borderCorrect : borderIncorrect)}
+  }
+`
+export const LastNameInput = styled(Input)`
+  width: 17rem;
+  &:focus {
+    ${({ variant }) => (variant === true ? borderCorrect : borderIncorrect)}
+  }
 `
 
 export const PlaceholderSpan = styled.span`
@@ -105,7 +130,7 @@ export const SubmitButton = styled.button`
     background-color: rgba(255, 255, 255, 0.7);
   }
 `
-export const PageLink = styled.a`
+export const PageLink = styled.p`
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
   font-size: 1.4rem;
